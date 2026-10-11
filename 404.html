@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KyKin: Page not found</title>
+<meta name="description" content="This KyKin page does not exist.">
+<meta name="robots" content="noindex">
+<style>
+  :root{--brand:#6B3F72;--deep:#4A2A50;--accent:#7A4A80;--peach:#FFB59E;--text:#231A22;--muted:#615460;--bg:#F7F2F5;--line:#E6DCE4}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+  a{color:var(--accent);text-decoration:underline}
+  .hero{background:linear-gradient(135deg,var(--brand),var(--deep));color:#fff;padding:44px 20px 40px}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:26px}
+  .brand svg{width:36px;height:36px}
+  .hero h1{margin:18px 0 6px;font-size:30px;font-weight:800;line-height:1.2}
+  .hero p{margin:0;font-size:17px}
+  .hero .priv{margin-top:14px;font-size:14px;color:var(--peach)}
+  main{max-width:760px;margin:-22px auto 60px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+  .toggle{display:flex;gap:8px;margin:0 0 18px}
+  .toggle button{border:1px solid var(--line);background:#fff;color:var(--text);padding:8px 16px;border-radius:999px;font-size:14px;cursor:pointer}
+  .toggle button.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+  h2{font-size:19px;margin:24px 0 6px}
+  .badge{display:inline-block;background:var(--deep);color:#fff;font-weight:700;font-size:13px;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+  details{border:1px solid var(--line);border-radius:12px;padding:4px 14px;margin:10px 0;background:#fff}
+  summary{cursor:pointer;font-weight:600;padding:10px 0}
+  details p{margin:0 0 12px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:8px 0 28px}
+  .card,.plan{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+  .card h3,.plan h3{margin:0 0 6px;font-size:17px}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+  .plans{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:10px 0 28px}
+  .plan.pro{border-color:var(--brand);box-shadow:0 8px 24px rgba(107,63,114,.18)}
+  .plan ul{margin:0;padding-left:18px;color:var(--muted)}
+  .center{text-align:center}
+  .muted{color:var(--muted);font-size:14px}
+  footer{max-width:760px;margin:0 auto 50px;padding:0 28px;color:var(--muted);font-size:13px;text-align:center}
+  [data-l][hidden]{display:none}
+  .note{border-left:4px solid var(--brand);background:var(--bg);padding:10px 14px;border-radius:8px;margin:14px 0}
+  @media(max-width:560px){.plans{grid-template-columns:1fr}.hero h1{font-size:25px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="brand"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><polygon points="2,12 11,4 11,8 5.4,12.6"/><polygon points="22,12 13,4 13,8 18.6,12.6"/><circle cx="12" cy="14.6" r="2.6"/><path d="M7.2 21c0-2.7 2.1-4.4 4.8-4.4s4.8 1.7 4.8 4.4z"/></svg>KyKin</div>
+    <div data-l="en"><h1>Page not found</h1><p>This page does not exist.</p></div><div data-l="pt" hidden><h1>Página não encontrada</h1><p>Esta página não existe.</p></div>
+    
+  </div>
+</header>
+<main>
+  <div class="toggle" role="group" aria-label="Language / Idioma">
+    <button id="btn-en" class="active" aria-pressed="true" onclick="setLang('en')">English</button>
+    <button id="btn-pt" aria-pressed="false" onclick="setLang('pt')">Português</button>
+  </div>
+  <noscript><p class="muted">This page has English and Portuguese (pt-BR) text; turn on JavaScript to switch. / Esta página tem texto em inglês e em português; ative o JavaScript para alternar.</p></noscript>
+  <section data-l="en">
+<p>This page does not exist. The <a href="/kykin/">KyKin home page</a> has the links to everything else.</p>
+  </section>
+  <section data-l="pt" hidden>
+<p>Esta página não existe. A <a href="/kykin/">página inicial do KyKin</a> tem os links para todo o resto.</p>
+  </section>
+  
+</main>
+<footer>© 2026 KyKin · <a href="/kykin/"><span data-l="en">Home</span><span data-l="pt" hidden>Início</span></a> · <a href="/kykin/privacy/"><span data-l="en">Privacy</span><span data-l="pt" hidden>Privacidade</span></a> · <a href="/kykin/support/"><span data-l="en">Support</span><span data-l="pt" hidden>Suporte</span></a></footer>
+
+<script>
+  function setLang(l){
+    document.querySelectorAll('[data-l]').forEach(function(e){e.hidden=(e.getAttribute('data-l')!==l)});
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    document.getElementById('btn-pt').classList.toggle('active', l==='pt');
+    document.getElementById('btn-en').setAttribute('aria-pressed', l==='en');
+    document.getElementById('btn-pt').setAttribute('aria-pressed', l==='pt');
+    document.documentElement.lang = l==='pt' ? 'pt-BR' : 'en';
+  }
+  if((navigator.language||'').toLowerCase().startsWith('pt')) setLang('pt');
+</script>
+
+</body>
+</html>
